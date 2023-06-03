@@ -1,10 +1,10 @@
 import axios from "axios";
 import { useEffect, useState, useRef } from "react";
-import { MainContainer } from "./components/MainCointainer";
-import { Table } from "./components/Table";
+import { MainContainer } from "../components/MainCointainer";
+import { Table } from "../components/Table";
 import { useQuery } from "react-query";
 import { Box } from "@mui/material";
-import { PageButton } from "./components/PageButton";
+import { PageButton } from "../components/PageButton";
 
 async function fetchCoins(skip) {
   const { data } = await axios.get(
@@ -13,7 +13,7 @@ async function fetchCoins(skip) {
   return data.coins;
 }
 
-function App() {
+function Coinstats() {
   const [page, setPage] = useState(0);
   const { data, isLoading, isError } = useQuery(
     ["coins", page],
@@ -74,4 +74,4 @@ function App() {
   );
 }
 
-export default App;
+export default Coinstats;
