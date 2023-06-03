@@ -1,18 +1,34 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { MainContainer } from "./components/MainCointainer";
 import { Table } from "./components/Table";
 import { useQuery } from "react-query";
+import { Button } from "@mui/material";
 
-async function fetchCoins() {
+async function fetchCoins(skip) {
   const { data } = await axios.get(
-    `https://api.coinstats.app/public/v1/coins?limit=10`
+    `https://api.coinstats.app/public/v1/coins?skip=${skip}&limit=10`
   );
   return data.coins;
 }
 
 function App() {
-  const { data, isLoading, isError } = useQuery("coins", fetchCoins);
+  const [page, setPage] = useState(0);
+  const { data, isLoading, isError } = useQuery(
+    ["coins", page],
+    () => fetchCoins(page),
+    { keepPreviousData: true }
+  );
+
+  const tableRef = useRef(null);
+
+  useEffect(() => {
+    if (tableRef.current) {
+      console.log(tableRef.current.scrollTop);
+      tableRef.current.scrollTop = 0; // Сбросить положение прокрутки при изменении страницы
+    }
+  }, [page]);
+
   if (isLoading) {
     return (
       <MainContainer>
@@ -38,7 +54,11 @@ function App() {
   }
   return (
     <MainContainer>
-      <Table data={data} />
+      <Table data={data} forwardRef={tableRef} />
+      <Button onClick={() => setPage((p) => p - 10)} disabled={!page}>
+        Previous
+      </Button>
+      <Button onClick={() => setPage((p) => p + 10)}>Next</Button>
     </MainContainer>
   );
 }

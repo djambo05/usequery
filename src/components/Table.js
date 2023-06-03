@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Table = ({ data }) => {
+export const Table = ({ data, forwardRef }) => {
   return (
     <table
       style={{
@@ -51,6 +51,7 @@ export const Table = ({ data }) => {
         </tr>
       </thead>
       <tbody
+        ref={forwardRef}
         style={{
           display: "block",
           width: "100%",
