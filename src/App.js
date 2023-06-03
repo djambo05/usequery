@@ -58,17 +58,22 @@ function App() {
 
   return (
     <MainContainer>
-      <TableContainer component={Paper}>
-        <Table>
-          <TableHead>
-            <TableRow sx={{ height: "50px" }}>
-              <TableCell align="left">№</TableCell>
-              <TableCell align="center">Naming</TableCell>
-              <TableCell align="right">Price</TableCell>
-            </TableRow>
-          </TableHead>
-        </Table>
-      </TableContainer>
+      <table style={{ minWidth: "100%", margin: 0 }}>
+        <thead style={{ height: "40px" }}>
+          <tr>
+            <th style={{ width: "10%" }}>№</th>
+            <th style={{ width: "40%" }}>Naming</th>
+            <th style={{ width: "50%" }}>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+          </tr>
+        </tbody>
+      </table>
     </MainContainer>
   );
 }
