@@ -5,6 +5,7 @@ import { Table } from "../components/Table";
 import { useQuery } from "react-query";
 import { Box } from "@mui/material";
 import { PageButton } from "../components/PageButton";
+import { useNavigate } from "react-router-dom";
 
 async function fetchCoins(skip) {
   const { data } = await axios.get(
@@ -29,6 +30,8 @@ function Coinstats() {
       tableRef.current.scrollTop = 0; // Сбросить положение прокрутки при изменении страницы
     }
   }, [page]);
+
+  const navigate = useNavigate();
 
   if (isLoading) {
     return (
@@ -60,14 +63,24 @@ function Coinstats() {
         sx={{ display: "flex", height: "30px", gap: "10px", marginTop: "20px" }}
       >
         <PageButton
+          sx={{ color: "black", backgroundColor: "#53ed0d" }}
           variant="contained"
           onClick={() => setPage((p) => p - 10)}
           disabled={!page}
         >
           Previous
         </PageButton>
-        <PageButton variant="contained" onClick={() => setPage((p) => p + 10)}>
+        <PageButton
+          sx={{ color: "black", backgroundColor: "#53ed0d" }}
+          onClick={() => setPage((p) => p + 10)}
+        >
           Next
+        </PageButton>
+        <PageButton
+          sx={{ backgroundColor: "yellow", color: "black" }}
+          onClick={() => navigate("/binance")}
+        >
+          Binance
         </PageButton>
       </Box>
     </MainContainer>

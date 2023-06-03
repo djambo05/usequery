@@ -1,4 +1,7 @@
 import React from "react";
-function Binance() {}
+
+function Binance() {
+  return <div>Binance</div>;
+}
 
 export default Binance;
