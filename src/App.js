@@ -18,7 +18,7 @@ function App() {
   const { data, isLoading, isError } = useQuery(
     ["coins", page],
     () => fetchCoins(page),
-    { keepPreviousData: true }
+    { keepPreviousData: true, refetchOnWindowFocus: false }
   );
 
   const tableRef = useRef(null);
