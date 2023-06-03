@@ -11,35 +11,42 @@ export const Table = ({ coins }) => {
     >
       <thead
         style={{
-          display: "flex",
+          display: "block",
+          height: "40px",
           width: "100%",
           backgroundColor: "white",
+          borderBottom: "1.5px solid black",
+          borderTop: "1.5px solid black",
         }}
       >
-        <tr style={{ display: "block", minHeight: "100%", width: "100%" }}>
+        <tr style={{ height: "40px" }}>
           <th
             style={{
-              height: "40px",
               width: "55px",
-              border: "1.5px solid black",
+              borderLeft: "1.5px solid black",
+              padding: 0,
+              whiteSpace: "nowrap",
             }}
           >
             №
           </th>
           <th
             style={{
-              height: "100%",
               width: "40%",
-              border: "1.5px solid black",
+              borderLeft: "1.5px solid black",
+              padding: 0,
+              whiteSpace: "nowrap",
             }}
           >
             Naming
           </th>
           <th
             style={{
-              height: "100%",
               width: "50%",
-              border: "1.5px solid black",
+              borderLeft: "1.5px solid black",
+              borderRight: "1.5px solid black",
+              padding: 0,
+              whiteSpace: "nowrap",
             }}
           >
             Price
@@ -50,18 +57,24 @@ export const Table = ({ coins }) => {
         style={{
           display: "block",
           width: "100%",
-          overflow: "auto",
-          height: "300px",
+          overflowY: "scroll",
+          height: "260px",
         }}
       >
         {coins.map((coin) => {
           return (
-            <tr key={coin.id} style={{ height: "40px" }}>
+            <tr
+              key={coin.id}
+              style={{ height: "40px", backgroundColor: "yellow" }}
+            >
               <td
                 style={{
                   textAlign: "center",
-                  width: "10%",
+                  width: "55px",
                   border: "1.5px solid black",
+                  borderTop: "0px",
+                  whiteSpace: "nowrap",
+                  padding: 0,
                 }}
               >
                 {coin.rank}
@@ -71,6 +84,9 @@ export const Table = ({ coins }) => {
                   textAlign: "center",
                   width: "40%",
                   border: "1.5px solid black",
+                  borderTop: "0px",
+                  whiteSpace: "nowrap",
+                  padding: 0,
                 }}
               >
                 {coin.name}
@@ -80,6 +96,10 @@ export const Table = ({ coins }) => {
                   textAlign: "center",
                   width: "50%",
                   border: "1.5px solid black",
+                  borderTop: "0px",
+                  borderRight: "0px",
+                  whiteSpace: "nowrap",
+                  padding: 0,
                 }}
               >
                 {coin.price}
