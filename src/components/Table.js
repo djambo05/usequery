@@ -14,7 +14,7 @@ export const Table = ({ coins }) => {
           display: "block",
           height: "40px",
           width: "550px",
-          backgroundColor: "white",
+          backgroundColor: "rgb(78, 220, 160)",
         }}
       >
         <tr style={{ height: "40px", width: "550px" }}>
@@ -65,7 +65,7 @@ export const Table = ({ coins }) => {
               style={{
                 height: "40px",
                 width: "550px",
-                backgroundColor: "yellow",
+                backgroundColor: "rgb(176, 109, 218)",
               }}
             >
               <td
