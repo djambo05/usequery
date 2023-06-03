@@ -1,6 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { MainContainer } from "./MainCointainer";
+import {
+  Paper,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Table,
+} from "@mui/material";
 
 function App() {
   const [coins, setCoins] = useState();
@@ -50,95 +58,17 @@ function App() {
 
   return (
     <MainContainer>
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          height: "40px",
-          border: "2px solid black",
-          borderRadius: "15px",
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            width: "10%",
-            height: "100%",
-            borderRight: "1px solid black",
-          }}
-        >
-          <span>№</span>
-        </div>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            width: "40%",
-            height: "100%",
-            borderRight: "1px solid black",
-          }}
-        >
-          <span>Naming</span>
-        </div>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            width: "50%",
-            height: "100%",
-          }}
-        >
-          <span>Price</span>
-        </div>
-      </div>
-      <ul style={{ padding: 0, margin: 0, listStyleType: "none" }}>
-        {coins.map((coin) => {
-          return (
-            <li key={coin.id} style={{ display: "flex" }}>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  width: "10%",
-                  height: "100%",
-                  borderRight: "1px solid black",
-                }}
-              >
-                <span>{coin.rank}</span>
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  width: "40%",
-                  height: "100%",
-                  borderRight: "1px solid black",
-                }}
-              >
-                <span>{coin.name}</span>
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  width: "50%",
-                  height: "100%",
-                  borderRight: "1px solid black",
-                }}
-              >
-                <span>{coin.price}</span>
-              </div>
-            </li>
-          );
-        })}
-      </ul>
+      <TableContainer component={Paper}>
+        <Table>
+          <TableHead>
+            <TableRow sx={{ height: "50px" }}>
+              <TableCell align="left">№</TableCell>
+              <TableCell align="center">Naming</TableCell>
+              <TableCell align="right">Price</TableCell>
+            </TableRow>
+          </TableHead>
+        </Table>
+      </TableContainer>
     </MainContainer>
   );
 }
