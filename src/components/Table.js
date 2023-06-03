@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Table = ({ coins }) => {
+export const Table = ({ data }) => {
   return (
     <table
       style={{
@@ -58,7 +58,7 @@ export const Table = ({ coins }) => {
           height: "260px",
         }}
       >
-        {coins.map((coin) => {
+        {data.map((coin) => {
           return (
             <tr
               key={coin.id}
