@@ -13,8 +13,8 @@ export const MainContainer = ({ children }) => {
     >
       <div
         style={{
-          minWidth: "550px",
-          minHeight: "500px",
+          width: "550px",
+          height: "300px",
           borderRadius: "15px",
           padding: "20px",
           backgroundColor: "rgb(228, 229, 151)",

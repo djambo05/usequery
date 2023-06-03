@@ -1,14 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { MainContainer } from "./MainCointainer";
-import {
-  Paper,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Table,
-} from "@mui/material";
+import { MainContainer } from "./components/MainCointainer";
+import { Table } from "./components/Table";
 
 function App() {
   const [coins, setCoins] = useState();
@@ -58,55 +51,7 @@ function App() {
 
   return (
     <MainContainer>
-      <table
-        style={{
-          minWidth: "100%",
-          margin: 0,
-          borderCollapse: "collapse",
-          border: "1.5px solid black",
-        }}
-      >
-        <thead style={{ height: "40px", borderBottom: "1.5px solid black" }}>
-          <tr>
-            <th style={{ width: "10%", border: "1.5px solid black" }}>№</th>
-            <th style={{ width: "40%", border: "1.5px solid black" }}>
-              Naming
-            </th>
-            <th style={{ width: "50%", border: "1.5px solid black" }}>Price</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td
-              style={{
-                textAlign: "center",
-                width: "10%",
-                border: "1.5px solid black",
-              }}
-            >
-              1
-            </td>
-            <td
-              style={{
-                textAlign: "center",
-                width: "40%",
-                border: "1.5px solid black",
-              }}
-            >
-              2
-            </td>
-            <td
-              style={{
-                textAlign: "center",
-                width: "50%",
-                border: "1.5px solid black",
-              }}
-            >
-              3
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <Table coins={coins} />
     </MainContainer>
   );
 }
