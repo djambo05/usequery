@@ -20,8 +20,9 @@ export const Table = ({ coins }) => {
         <tr style={{ height: "40px", width: "550px" }}>
           <th
             style={{
+              textAlign: "left",
               width: "55px",
-              padding: 0,
+              paddingLeft: 20,
               whiteSpace: "nowrap",
             }}
           >
@@ -29,8 +30,9 @@ export const Table = ({ coins }) => {
           </th>
           <th
             style={{
+              textAlign: "left",
               width: "40%",
-              padding: 0,
+              paddingLeft: 40,
               whiteSpace: "nowrap",
             }}
           >
@@ -38,8 +40,9 @@ export const Table = ({ coins }) => {
           </th>
           <th
             style={{
+              textAlign: "left",
               width: "50%",
-              padding: 0,
+              paddingLeft: 40,
               whiteSpace: "nowrap",
             }}
           >
@@ -67,37 +70,37 @@ export const Table = ({ coins }) => {
             >
               <td
                 style={{
-                  textAlign: "center",
+                  textAlign: "left",
                   width: "55px",
                   borderTop: "0px",
                   whiteSpace: "nowrap",
-                  padding: 0,
+                  paddingLeft: 20,
                 }}
               >
                 {coin.rank}
               </td>
               <td
                 style={{
-                  textAlign: "center",
+                  textAlign: "left",
                   width: "220px",
                   borderTop: "0px",
                   whiteSpace: "nowrap",
-                  padding: 0,
+                  paddingLeft: 40,
                 }}
               >
                 {coin.name}
               </td>
               <td
                 style={{
-                  textAlign: "center",
+                  textAlign: "left",
                   width: "265px",
                   borderTop: "0px",
                   borderRight: "0px",
                   whiteSpace: "nowrap",
-                  padding: 0,
+                  paddingLeft: 40,
                 }}
               >
-                {coin.price}
+                {coin.price.toFixed(2)}
               </td>
             </tr>
           );
