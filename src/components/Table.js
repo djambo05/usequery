@@ -13,13 +13,13 @@ export const Table = ({ coins }) => {
         style={{
           display: "block",
           height: "40px",
-          width: "100%",
+          width: "550px",
           backgroundColor: "white",
           borderBottom: "1.5px solid black",
           borderTop: "1.5px solid black",
         }}
       >
-        <tr style={{ height: "40px" }}>
+        <tr style={{ height: "40px", width: "550px" }}>
           <th
             style={{
               width: "55px",
@@ -32,7 +32,7 @@ export const Table = ({ coins }) => {
           </th>
           <th
             style={{
-              width: "40%",
+              width: "220px",
               borderLeft: "1.5px solid black",
               padding: 0,
               whiteSpace: "nowrap",
@@ -42,7 +42,7 @@ export const Table = ({ coins }) => {
           </th>
           <th
             style={{
-              width: "50%",
+              width: "275px",
               borderLeft: "1.5px solid black",
               borderRight: "1.5px solid black",
               padding: 0,
@@ -65,12 +65,16 @@ export const Table = ({ coins }) => {
           return (
             <tr
               key={coin.id}
-              style={{ height: "40px", backgroundColor: "yellow" }}
+              style={{
+                height: "40px",
+                width: "550px",
+                backgroundColor: "yellow",
+              }}
             >
               <td
                 style={{
                   textAlign: "center",
-                  width: "55px",
+                  width: "54.93px",
                   border: "1.5px solid black",
                   borderTop: "0px",
                   whiteSpace: "nowrap",
@@ -82,7 +86,7 @@ export const Table = ({ coins }) => {
               <td
                 style={{
                   textAlign: "center",
-                  width: "40%",
+                  width: "219.7px",
                   border: "1.5px solid black",
                   borderTop: "0px",
                   whiteSpace: "nowrap",
@@ -94,7 +98,7 @@ export const Table = ({ coins }) => {
               <td
                 style={{
                   textAlign: "center",
-                  width: "50%",
+                  width: "264.58px",
                   border: "1.5px solid black",
                   borderTop: "0px",
                   borderRight: "0px",
