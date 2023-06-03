@@ -3,7 +3,8 @@ import { useEffect, useState, useRef } from "react";
 import { MainContainer } from "./components/MainCointainer";
 import { Table } from "./components/Table";
 import { useQuery } from "react-query";
-import { Button } from "@mui/material";
+import { Box } from "@mui/material";
+import { PageButton } from "./components/PageButton";
 
 async function fetchCoins(skip) {
   const { data } = await axios.get(
@@ -55,10 +56,20 @@ function App() {
   return (
     <MainContainer>
       <Table data={data} forwardRef={tableRef} />
-      <Button onClick={() => setPage((p) => p - 10)} disabled={!page}>
-        Previous
-      </Button>
-      <Button onClick={() => setPage((p) => p + 10)}>Next</Button>
+      <Box
+        sx={{ display: "flex", height: "30px", gap: "10px", marginTop: "20px" }}
+      >
+        <PageButton
+          variant="contained"
+          onClick={() => setPage((p) => p - 10)}
+          disabled={!page}
+        >
+          Previous
+        </PageButton>
+        <PageButton variant="contained" onClick={() => setPage((p) => p + 10)}>
+          Next
+        </PageButton>
+      </Box>
     </MainContainer>
   );
 }

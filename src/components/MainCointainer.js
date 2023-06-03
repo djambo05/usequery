@@ -14,7 +14,7 @@ export const MainContainer = ({ children }) => {
       <div
         style={{
           width: "590px",
-          height: "340px",
+          height: "390px",
           borderRadius: "15px",
           padding: "20px",
           backgroundColor: "rgb(228, 229, 151)",
