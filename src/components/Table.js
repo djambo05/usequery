@@ -15,15 +15,12 @@ export const Table = ({ coins }) => {
           height: "40px",
           width: "550px",
           backgroundColor: "white",
-          borderBottom: "1.5px solid black",
-          borderTop: "1.5px solid black",
         }}
       >
         <tr style={{ height: "40px", width: "550px" }}>
           <th
             style={{
               width: "55px",
-              borderLeft: "1.5px solid black",
               padding: 0,
               whiteSpace: "nowrap",
             }}
@@ -32,8 +29,7 @@ export const Table = ({ coins }) => {
           </th>
           <th
             style={{
-              width: "220px",
-              borderLeft: "1.5px solid black",
+              width: "40%",
               padding: 0,
               whiteSpace: "nowrap",
             }}
@@ -42,9 +38,7 @@ export const Table = ({ coins }) => {
           </th>
           <th
             style={{
-              width: "275px",
-              borderLeft: "1.5px solid black",
-              borderRight: "1.5px solid black",
+              width: "50%",
               padding: 0,
               whiteSpace: "nowrap",
             }}
@@ -74,8 +68,7 @@ export const Table = ({ coins }) => {
               <td
                 style={{
                   textAlign: "center",
-                  width: "54.93px",
-                  border: "1.5px solid black",
+                  width: "55px",
                   borderTop: "0px",
                   whiteSpace: "nowrap",
                   padding: 0,
@@ -86,8 +79,7 @@ export const Table = ({ coins }) => {
               <td
                 style={{
                   textAlign: "center",
-                  width: "219.7px",
-                  border: "1.5px solid black",
+                  width: "220px",
                   borderTop: "0px",
                   whiteSpace: "nowrap",
                   padding: 0,
@@ -98,8 +90,7 @@ export const Table = ({ coins }) => {
               <td
                 style={{
                   textAlign: "center",
-                  width: "264.58px",
-                  border: "1.5px solid black",
+                  width: "265px",
                   borderTop: "0px",
                   borderRight: "0px",
                   whiteSpace: "nowrap",
