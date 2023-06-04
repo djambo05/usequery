@@ -1,30 +1,52 @@
 import React from "react";
-import { Table } from "../components/Table";
-import config from "../env";
+import { MainContainer } from "../components/MainCointainer";
+import { binanceAll, binanceTicket } from "../services/BinanceApi";
+import { useQuery } from "react-query";
 
-const Binance = require("node-binance-api");
 function BinancePage() {
-  console.log(config);
-  const binance = new Binance().options({
-    APIKEY: config.APIKEY,
-    APISECRET: config.SECRETKEY,
+  const {
+    data: dataAll,
+    isLoading: isLoadingAll,
+    isError: isErrorAll,
+  } = useQuery(["binanceAll"], binanceAll, {
+    keepPreviousData: true,
+    refetchOnWindowFocus: false,
   });
-  return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        height: "100vh",
-        margin: "30px",
-        padding: "30px",
-        borderRadius: "15px",
-        backgroundColor: "yellow",
-      }}
-    >
-      Binance
-    </div>
-  );
+
+  const {
+    data: dataTicket,
+    isLoading: isLoadingTicket,
+    isError: isErrorTicket,
+  } = useQuery(["binanceTicket"], () => binanceTicket(0), {
+    keepPreviousData: true,
+    refetchOnWindowFocus: false,
+  });
+
+  if (isLoadingAll) {
+    return (
+      <MainContainer sx={{ minWidth: "600px" }}>
+        <h3>Loading...</h3>
+      </MainContainer>
+    );
+  }
+
+  if (isErrorAll) {
+    return (
+      <MainContainer sx={{ minWidth: "600px" }}>
+        <h3>Getting data error...</h3>
+      </MainContainer>
+    );
+  }
+
+  if (!dataAll) {
+    return (
+      <MainContainer sx={{ minWidth: "600px" }}>
+        <h3>No data...</h3>
+      </MainContainer>
+    );
+  }
+
+  return <MainContainer sx={{ minWidth: "600px" }}></MainContainer>;
 }
 
 export default BinancePage;

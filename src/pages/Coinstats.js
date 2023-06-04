@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useEffect, useState, useRef } from "react";
 import { MainContainer } from "../components/MainCointainer";
 import { Table } from "../components/Table";
@@ -6,27 +5,23 @@ import { useQuery } from "react-query";
 import { Box } from "@mui/material";
 import { PageButton } from "../components/PageButton";
 import { useNavigate } from "react-router-dom";
-
-async function fetchCoins(skip) {
-  const { data } = await axios.get(
-    `https://api.coinstats.app/public/v1/coins?skip=${skip}&limit=10`
-  );
-  return data.coins;
-}
+import { fetchCoins } from "../services/CoinstatsApi";
 
 function Coinstats() {
   const [page, setPage] = useState(0);
   const { data, isLoading, isError } = useQuery(
     ["coins", page],
     () => fetchCoins(page),
-    { keepPreviousData: true, refetchOnWindowFocus: false }
+    {
+      keepPreviousData: true,
+      refetchOnWindowFocus: false,
+    }
   );
 
   const tableRef = useRef(null);
 
   useEffect(() => {
     if (tableRef.current) {
-      console.log(tableRef.current.scrollTop);
       tableRef.current.scrollTop = 0; // Сбросить положение прокрутки при изменении страницы
     }
   }, [page]);
