@@ -1,6 +1,6 @@
 import config from "../env";
 
-export const binanceAll = async () => {
+export const binanceInfoAll = async () => {
   const data = await fetch(`${config.URL}/fapi/v1/exchangeInfo`, {
     method: "GET",
     headers: {
@@ -11,7 +11,7 @@ export const binanceAll = async () => {
   return data;
 };
 
-export const binanceTicket = async (ticket) => {
+export const binanceTickets = async () => {
   const data = await fetch(`${config.URL}/fapi/v1/ticker/price`, {
     method: "GET",
     headers: {
@@ -19,6 +19,6 @@ export const binanceTicket = async (ticket) => {
       "X-MBX-APIKEY": config.APIKEY,
     },
   }).then((data) => data.json());
-  console.log(data[ticket]);
+  console.log(data);
   return data;
 };
